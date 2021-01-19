@@ -1,0 +1,16 @@
+References
+
+https://www.baeldung.com/sha-256-hashing-java
+
+https://people.apache.org/~thejas/thrift-0.9/javadoc/org/apache/thrift/TException.html
+
+https://www.iitg.ac.in/
+
+https://www.tutorialspoint.com/javaexamples/file_write.htm
+
+https://www.w3schools.com/java/java_files_create.asp
+
+
+
+
+

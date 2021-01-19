@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class AdviceClientFundamental{
+
+    String path = "/www/cat2.jpeg/";
+
+    String httpLink ="GET "+path+" HTTP/1.1";
+
+    BufferedReader reader;
+    PrintWriter writer;
+
+    boolean resp = false;
+
+    public void go(){
+
+        try{
+
+            Socket socket = new Socket("localhost", 4244);
+
+            //send request(data) to server
+            writer = new PrintWriter(socket.getOutputStream());
+            writer.println("GET /cat2.png HTTP/1.1");
+           // writer.close();
+            System.out.println("sending req");
+
+       //     writer.close();
+            //read response from server
+            String messg;
+            reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            try{
+                System.out.println("getting results");
+                messg = new BufferedReader((new InputStreamReader(socket.getInputStream()))).readLine();
+                if(messg == null)System.out.println("null res");
+                while(messg!=null){
+
+                    System.out.println(messg+"\n");
+                    messg= reader.readLine();
+                }
+
+            }catch(IOException e){
+                e.printStackTrace();
+            }
+
+            System.out.println("bla");
+            writer.close();
+
+          //  socket.close();
+           // writer.close();
+            reader.close();
+
+            socket.close();
+
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        AdviceClientFundamental client = new AdviceClientFundamental();
+        client.go();
+    }
+}

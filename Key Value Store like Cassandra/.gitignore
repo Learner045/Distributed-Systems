@@ -1,0 +1,8 @@
+# Not tracking any hidden files except .gitignore file.
+.*
+!.gitignore
+
+#pyc files not needed
+**/*.pyc
+
+copyFiles.sh
